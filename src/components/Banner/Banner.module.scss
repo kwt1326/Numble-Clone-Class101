@@ -1,0 +1,25 @@
+.container {
+  .banner_wrap {
+    position: relative;
+    padding: 0 32px;
+    overflow-x: hidden;
+
+    .banner_text_wrap {
+      .banner_title {
+
+      }
+      .banner_sub_title {
+
+      }
+    }
+  }
+}
+
+@media (min-width: 1240px) {
+  .banner_wrap {
+    width: 100%;
+    max-width: 1176px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
