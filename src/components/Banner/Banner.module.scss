@@ -1,16 +1,26 @@
 .container {
-  .banner_wrap {
-    position: relative;
-    padding: 0 32px;
-    overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  height: 455px;
+  padding: 0 32px;
 
-    .banner_text_wrap {
-      .banner_title {
+  .carosel_container {
+    width: 600px;
+    padding-top: 40px;
+    margin: 0;
+  }
 
-      }
-      .banner_sub_title {
-
-      }
+  .banner_text_wrap {
+    padding-top: 56px;
+    padding-left: 48px;
+    min-width: 450px;
+    .banner_title {
+      line-height: 44px;
+    }
+    .banner_sub_title {
+      opacity: 0.6;
+      margin: 10px 0 0;
     }
   }
 }

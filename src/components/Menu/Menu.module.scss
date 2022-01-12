@@ -1,0 +1,11 @@
+.container {
+  height: 52px;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: row;
+
+  .menu_item {
+    padding: 8px 0px 20px;
+    margin-right: 28px;
+  }
+}

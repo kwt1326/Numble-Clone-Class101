@@ -1,0 +1,32 @@
+.container {
+  overflow: hidden;
+  display: flex;
+  background: transparent;
+  position: relative;
+
+  .carosel_item_wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: absolute;
+    transition: ease-in-out 0.5s;
+    left: 0px;
+
+    .carosel_img_wrap {
+      position: relative;
+      border-radius: 5px;
+
+      .carosel_badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: auto;
+        height: 50px;
+        line-height: 50px;
+        margin: 0;
+        padding: 0 15px;
+        background-color: rgb(244,33,23)
+      }
+    }
+  }
+}
