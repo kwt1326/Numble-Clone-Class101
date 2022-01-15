@@ -19,7 +19,7 @@ export default function Header(params: any) {
       <div className={styles.nav_left_btn}>
         {
           headerButtonLeft.map((item, i) => (
-            <Subtitle1 element="h4" color={i === 0 ? Colors.orange500 : Colors.black}>
+            <Subtitle1 key={i} element="h4" color={i === 0 ? Colors.orange500 : Colors.black}>
               {item}
             </Subtitle1>
           ))
@@ -33,7 +33,7 @@ export default function Header(params: any) {
         />
       </form>
       <div className={styles.nav_right_btn}>
-        {headerButtonRight.map((item) => <Body2 element={"p"}>{item}</Body2>)}
+        {headerButtonRight.map((item, i) => <Body2 key={i} element={"p"}>{item}</Body2>)}
       </div>
     </header>
   )

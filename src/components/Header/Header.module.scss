@@ -9,6 +9,10 @@
     width: 120px;
     margin-right: 36px;
     justify-content: space-between;
+
+    h4 {
+      cursor: pointer;
+    }
   }
   .nav_right_btn {
     display: flex;
@@ -17,6 +21,7 @@
     p {
       margin: 0;
       margin-right: 24px;
+      cursor: pointer;
     }
     p:last-child {
       margin: 0;
@@ -33,6 +38,7 @@
 .logo_container {
   display: flex;
   margin-right: 28px;
+  cursor: pointer;
 
   .svg_css {
     width: auto;

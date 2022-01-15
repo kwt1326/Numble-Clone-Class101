@@ -1,33 +1,40 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Card } from '@class101/ui';
-import styles from './Carosel.module.scss';
 import "swiper/css/bundle";
+// import 'swiper/modules/navigation/navigation.scss'; // Navigation module
+// import 'swiper/modules/pagination/pagination.scss'; // Pagination module
 
 export default function Carosel(props: {
   perView?: number;
-  swiperClass: string;
+  spaceBetween?: number;
+  swiperClass?: string;
+  onIndexChange?: Function;
   data: Array<any>;
-  onIndexChange: Function;
+  renderChild(data: unknown, i: number): ReactNode;
 }) {
   const {
-    data, perView,
+    data,
+    perView,
+    spaceBetween,
     swiperClass,
-    onIndexChange
+    onIndexChange,
+    renderChild,
   } = props;
   return (
     <Swiper
       className={swiperClass}
-      onSlideChange={(params) => onIndexChange(params.activeIndex)}
+      onSlideChange={
+        onIndexChange ?
+          (params) => onIndexChange(params.activeIndex) :
+          () => void 0
+      }
       slidesPerView={perView || 1}
+      spaceBetween={spaceBetween || 0}
     >
       {
-        data.map(item => (
-          <SwiperSlide>
-            <Card
-              coverImage={item.img}
-              coverImageAlt="slide_card_img"
-            />
+        data.map((_data, i) => (
+          <SwiperSlide key={i}>
+            {renderChild(_data, i)}
           </SwiperSlide>
         ))
       }
