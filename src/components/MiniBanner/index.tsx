@@ -1,4 +1,4 @@
-import { Body2, Button, Colors, Headline2 } from '@class101/ui';
+import { Body2, Button, Headline2 } from '@class101/ui';
 import React from 'react';
 import { CaroselItem } from '../../interface/CaroselType';
 import Carosel from '../Carosel';

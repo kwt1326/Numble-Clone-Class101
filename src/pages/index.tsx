@@ -1,4 +1,4 @@
-import { Body2, Card, CoverRatio } from '@class101/ui';
+import { Card, CoverRatio } from '@class101/ui';
 import {
   MdRecommendClassData,
   OpenSoonClassDataType,
