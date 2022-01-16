@@ -1,0 +1,83 @@
+.coupon {
+  position: absolute;
+  display: flex;
+  left: 12px;
+  top: 12px;
+  padding: 6px 8px;
+  border-radius: 2px;
+}
+.like_heart {
+  position: absolute;
+  background: url('../../../public/like_heart.svg');
+  width: 24px;
+  height: 24px;
+  top: 12px;
+  right: 12px;
+}
+.class_timedeal_top_node {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  background-color: #1a1a1a;
+
+  .inner_text_timedeal {
+    padding-left: 7px;
+  }
+}
+
+.class_bottom_node {
+  margin-top: 4px;
+
+  .heart {
+    margin-left: 2px;
+    margin-right: 4px;
+  }
+  .like {
+    margin-left: 2px;
+  }
+  .cheer {
+    margin-left: 2px;
+  }
+}
+
+.horizon_sparator {
+  margin: 8px 0;
+  height: 1px;
+  background-color: #fafafa;
+}
+
+.cheer_btn {
+  width: 100%;
+  margin-top: 8px;
+  background-color: #FF4D001A;
+  color: #FF4D00; // colors 에 없음
+}
+
+.class_card_inner_node {
+  display: flex;
+  flex-direction: column;
+
+  .price_wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    p:nth-child(2), p:nth-child(3) {
+      margin-left: 5px;
+    }
+  }
+}
+
+.carosel_spacing_box {
+  margin-top: 72px;
+}
+
+.flex_row_center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
