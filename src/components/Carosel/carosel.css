@@ -1,0 +1,20 @@
+/* .swiper-button-next {
+  background: url('/public/next_icon.svg') no-repeat;
+}
+
+.swiper-button-prev {
+  background: url('/public/prev_icon.svg') no-repeat;
+} */
+
+.carosel_container {
+
+}
+
+.swiper_pagination {
+
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}

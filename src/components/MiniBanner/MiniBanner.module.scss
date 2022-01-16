@@ -1,0 +1,62 @@
+.minibanner_container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  height: 240px;
+  width: 100%;
+
+  .carosel_container {
+    width: 100%;
+  }
+
+  .minibanner_child {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 206px;
+    max-width: 1176px;
+    width: 100%;
+    margin-top: 34px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .minibanner_inner_child {
+      display: flex;
+      align-items: center;
+
+      .text_content_wrap {
+        p {
+          margin-top: 6px;
+        }
+      }
+    }
+
+    .more_content_btn {
+      background-color: #F8F8F8;
+      margin-top: 24px;
+    }
+  }
+}
+
+.minibanner_img {
+  position: absolute;
+  top: -60px;
+  right: 0;
+
+  img {
+    width: 360px;
+    height: 261px;
+  }
+}
+
+.inside_btn_parent_class {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .minibanner_img img {
+    width: 360px;
+    height: 261px;
+  }
+}

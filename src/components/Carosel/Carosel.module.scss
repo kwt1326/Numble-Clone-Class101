@@ -1,0 +1,48 @@
+.carosel_container {
+  position: relative;
+  width: 100%;
+
+  .prev_btn {
+    background: url('../../../public/prev_icon.svg') no-repeat;
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .next_btn {
+    background: url('../../../public/next_icon.svg') no-repeat;
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  .prev_inside_btn {
+    background: url('../../../public/prev_icon.svg') no-repeat;
+    position: absolute;
+    border-radius: 5px;
+    background-color: white;
+    width: 32px;
+    height: 32px;
+    border-right: 1px solid;
+  }
+  .next_inside_btn {
+    background: url('../../../public/next_icon.svg') no-repeat;
+    position: absolute;
+    border-radius: 5px;
+    background-color: white;
+    width: 32px;
+    height: 32px;
+  }
+
+  .bullet {
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    opacity: 0.56;
+  }
+}

@@ -28,10 +28,12 @@ export default function renderMenu() {
       </Body1>
       {
         mainMenuItem.map((item, i) => (
-          <div className={styles.menu_item}>
+          <div className={styles.menu_item} key={i}>
             <Body1
               key={i}
               fontWeight="bold"
+              lg="Body1"
+              sm="Body2"
             >
               {item}
             </Body1>
@@ -41,7 +43,7 @@ export default function renderMenu() {
       <div className={styles.vertical_sparator}></div>
       {
         subMenuItem.map((item, i) => (
-          <Body1 key={i} className={styles.menu_item}>{item}</Body1>
+          <Body1 key={i} className={styles.right_menu_item}>{item}</Body1>
         ))
       }
     </div>

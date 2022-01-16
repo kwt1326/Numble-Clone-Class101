@@ -27,6 +27,7 @@ export default function Banner(props: { data: Array<CaroselItem> }) {
               data={props.data}
               renderChild={renderItem}
               perView={1}
+              autoplayDelay={6000}
               onIndexChange={onIndexChange}
             />
           </div>

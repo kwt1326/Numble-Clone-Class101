@@ -13,6 +13,7 @@ export default function BeltBanner(props: { index: number } = { index: 0 }) {
           Array.isArray(data.content) ?
             data.content?.map((content, i) => (
               <Subtitle1
+                key={i}
                 className={styles.content_style}
                 lg="Subtitle1"
                 sm="Body1"

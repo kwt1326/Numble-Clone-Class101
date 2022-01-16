@@ -16,6 +16,8 @@ export type TimeDealClassDataType = CommonClassDataType & {
   coupon: number;
 }
 
+export type MdRecommendClassData = TimeDealClassDataType;
+
 export type OpenSoonClassDataType = CommonClassDataType & {
   cheer: {
     goal: number;

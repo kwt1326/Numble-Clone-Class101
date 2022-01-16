@@ -1,149 +1,39 @@
-import React, { Fragment, ReactNode } from 'react';
-import { Body1, Body2, Caption1, Caption2, Card, Colors, Headline3 } from '@class101/ui';
-import { TimeDealClassDataType } from '../interface/ClassDataType';
+import { Body2, Card, CoverRatio } from '@class101/ui';
+import {
+  MdRecommendClassData,
+  OpenSoonClassDataType,
+  TimeDealClassDataType
+} from '../interface/ClassDataType';
+import { PopularEventDataType } from '../interface/EventDataType';
+
 import Menu from '../components/Menu';
 import Header from '../components/Header';
 import Banner from '../components/Banner';
-import Carosel from '../components/Carosel';
 import BeltBanner from '../components/BeltBanner';
+import renderPagenationCarosel from '../components/PagenationCarosel';
 import {
+  renderTimedealExtraTopNode,
+  renderExtraBottomNode,
+  renderCoupon,
+  renderHeart,
+  renderCardInnerNode
+} from '../components/CardComponents';
+
+import {
+  caroselBottomEventData,
   caroselTopEventData
 } from '../constants/carosel_data';
 import {
+  classMdRecommandData,
+  classOpenSoonData,
   classTimeDealData
 } from '../constants/class_data';
+import { popularEventData } from '../constants/popular_event_data';
 
 import styles from './Main.module.scss';
-import { SvgHeart, SvgLike } from '../components/Svg';
-import priceComma from '../helper/costComma';
+import MiniBanner from '../components/MiniBanner';
 
 function Main() {
-  const renderPagenationCarosel = <T extends unknown>(params: {
-    data: Array<T>;
-    title: string;
-    renderChild(data: unknown, index: number): ReactNode;
-    rightBtnText?: string;
-  }): JSX.Element => (
-    <div className={styles.class_container}>
-      <div className={styles.header}>
-        <Headline3
-          lg="Headline3"
-          sm="Subtitle1"
-          element="h4"
-          fontWeight={900}
-        >
-          {params.title}
-        </Headline3>
-        {
-          params.rightBtnText ? (
-            <Body1
-              lg="Body1"
-              sm="Body2"
-              fontWeight={900}
-              color={Colors.gray600}
-            >
-              {params.rightBtnText}
-            </Body1>
-          ) : <></>
-        }
-      </div>
-      <Carosel
-        data={params.data}
-        perView={4}
-        spaceBetween={24}
-        swiperClass={styles.class_swiper_container}
-        renderChild={params.renderChild}
-      />
-    </div>
-  )
-
-  const renderTimedealExtraTopNode = (data: TimeDealClassDataType) => (
-    <Fragment>
-      <div className={styles.class_timedeal_top_node}>
-        <Caption2
-          fontWeight={900}
-          color={Colors.white}
-        >
-          <div>
-            <span>⏱</span>
-            <span className={styles.inner_text_timedeal}>
-              {'타임딜 종료까지'}
-            </span>
-          </div>
-        </Caption2>
-        <Caption2
-          fontWeight={900}
-          color={Colors.white}
-        >
-          {'1일'}
-        </Caption2>
-      </div>
-      <Caption1 fontWeight={900}>
-        {data.creator}
-      </Caption1>
-    </Fragment>
-  )
-
-  const renderExtraBottomNode = (data: any) => (
-    <div className={styles.class_bottom_node}>
-      <Caption1
-        className={styles.flex_row_center}
-        color={Colors.gray600}
-      >
-        <SvgHeart />
-        <div className={styles.heart}>{data.like}</div>
-        <SvgLike />
-        <div className={styles.like}>{data.thumsUp}%</div>
-      </Caption1>
-    </div>
-  )
-
-  const renderCoupon = (data: any, color: string) => (
-    <div className={styles.coupon} style={{ backgroundColor: color }}>
-      <Caption1
-        color={Colors.white}
-        fontWeight={900}
-      >
-        {data.coupon}만원 쿠폰
-      </Caption1>
-    </div>
-  )
-
-  const renderCardInnerNode = (data: any) => {
-    const monthSaleCost = priceComma(
-      String(Math.floor(data.price.salePrice / data.price.installment))
-    );
-    const monthCost = priceComma(
-      String(Math.floor(data.price.originalPrice / data.price.installment))
-    )
-    return (
-      <div className={styles.class_card_inner_node}>
-        <div className={styles.horizon_sparator} />
-        <div className={styles.price_wrap}>
-          <Body2
-            element="p"
-            color={Colors.red500}
-            fontWeight={700}
-          >
-            {monthSaleCost}원
-          </Body2>
-          <Body2
-            element="p"
-            fontWeight={700}
-          >
-            월 {monthCost}원
-          </Body2>
-          <Caption1
-            element="p"
-            color={Colors.gray600}
-          >
-            ({data.price.installment}개월)
-          </Caption1>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div>
       <Header />
@@ -159,12 +49,14 @@ function Main() {
             <Card
               className={styles.card_container}
               coverImage={data.img}
-              coverImageAlt='time_deal_img'
+              coverImageAlt='class_img'
               title={data.title}
+              coverImageRatio={CoverRatio.RATIO_4X3}
               extraTop={renderTimedealExtraTopNode(data)}
               extraBottom={renderExtraBottomNode(data)}
             >
               {renderCoupon(data, '#5820CF')}
+              {renderHeart()}
               {renderCardInnerNode(data)}
             </Card>
           )
@@ -173,17 +65,69 @@ function Main() {
       <div className={styles.carosel_spacing_box}></div>
       {
         renderPagenationCarosel({
-          data: classTimeDealData,
-          title: '오늘의 특가! TIME DEAL',
-          rightBtnText: '전체 클래스 보기',
-          renderChild: (data: TimeDealClassDataType, i: number) => (
+          data: classMdRecommandData['md_recommend'],
+          title: 'MD 추천 클래스',
+          ratio: CoverRatio.RATIO_3X4,
+          renderChild: (data: MdRecommendClassData, i: number) => (
             <Card
+              className={styles.card_container}
               coverImage={data.img}
-              coverImageAlt='time_deal_img'
+              coverImageAlt='class_img'
+              title={data.title}
+              coverImageRatio={CoverRatio.RATIO_3X4}
+              extraBottom={renderExtraBottomNode(data)}
+            >
+              {renderCoupon(data, '#F3213B')}
+              {renderHeart()}
+              {renderCardInnerNode(data)}
+            </Card>
+          )
+        })
+      }
+      <div className={styles.carosel_spacing_box}></div>
+      {
+        renderPagenationCarosel({
+          perView: 3,
+          data: popularEventData,
+          title: '진행 중인 인기 이벤트',
+          rightBtnText: '전체 클래스 보기',
+          ratio: CoverRatio.RATIO_16X9,
+          renderChild: (data: PopularEventDataType, i: number) => (
+            <Card
+              className={styles.card_container}
+              coverImage={data.img}
+              coverImageAlt='event_img'
+              coverImageRatio={CoverRatio.RATIO_16X9}
+              extraTop={renderTimedealExtraTopNode(data)}
             />
           )
         })
       }
+      <div className={styles.carosel_spacing_box}></div>
+      {
+        renderPagenationCarosel({
+          data: classOpenSoonData,
+          title: '오픈 예정 클래스',
+          subText: '오픈 예정인 클래스를 응원하면 얼리버드 오픈 시 알려드려요!',
+          rightBtnText: '전체 클래스 보기',
+          renderChild: (data: OpenSoonClassDataType, i: number) => (
+            <Card
+              className={styles.card_container}
+              coverImage={data.img}
+              coverImageAlt='class_img'
+              title={data.title}
+              extraBottom={renderExtraBottomNode(data)}
+            >
+              {renderCoupon(data, '#F3213B')}
+              {renderHeart()}
+              {renderCardInnerNode(data)}
+            </Card>
+          )
+        })
+      }
+      <div className={styles.carosel_spacing_box}></div>
+      <MiniBanner data={caroselBottomEventData} />
+      <div className={styles.carosel_spacing_box}></div>
     </div>
   )
 }

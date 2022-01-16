@@ -1,0 +1,36 @@
+.class_container {
+  max-width: 1176px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+
+  h6 {
+    cursor: pointer;
+  }
+
+  .header_title {
+    display: flex;
+    flex-direction: column;
+
+    h6 {
+      cursor: default;
+      margin-top: 4px;
+    }
+  }
+}
+
+.class_swiper_container {
+  max-width: 1176px;
+  width: 100%;
+  height: 100%;
+  margin: 0px auto;
+  overflow-x: hidden;
+}
